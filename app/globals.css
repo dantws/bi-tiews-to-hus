@@ -371,6 +371,10 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   .map-caption { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; max-width: none; }
 }
 
+.map-fallback {
+  display: none;
+}
+
 /* ----------------------------------------------------------------------
    9 · GESCHICHTE — Fragmente, Zitat, Bogenbild
 ---------------------------------------------------------------------- */
