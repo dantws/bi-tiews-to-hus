@@ -184,6 +184,8 @@ export default function SceneOrtLage() {
         createMarker(house, 'house');
         createMarker(beach, 'beach');
 
+    const isTouchSmall = window.innerWidth < 760;
+
         map.addSource('walk', {
           type: 'geojson',
           lineMetrics: true,
@@ -196,38 +198,30 @@ export default function SceneOrtLage() {
           },
         });
 
+const isTouchSmall = window.innerWidth < 760;
+    
         map.addLayer({
-          id: 'walk-line',
-          type: 'line',
-          source: 'walk',
-          layout: {
-            'line-cap': 'round',
-            'line-join': 'round',
-          },
-          paint: {
-            'line-color': '#1F4256',
-            'line-width': 4,
-            const isTouchSmall = window.innerWidth < 760;
-
-'line-gradient': isTouchSmall
-  ? '#1F4256'
-  : [
-      'step',
-      ['line-progress'],
-      '#1F4256',
-      0.001,
-      'rgba(46,74,90,0)',
-    ],
-
-  if (!isTouchSmall) {
-
-   st = ScrollTrigger.create({
-      ...
-   });
-
-}
-          },
-        });
+  id: 'walk-line',
+  type: 'line',
+  source: 'walk',
+  layout: {
+    'line-cap': 'round',
+    'line-join': 'round',
+  },
+  paint: {
+    'line-color': '#1F4256',
+    'line-width': 4,
+    'line-gradient': isTouchSmall
+      ? '#1F4256'
+      : [
+          'step',
+          ['line-progress'],
+          '#1F4256',
+          0.001,
+          'rgba(46,74,90,0)',
+        ],
+  },
+});
 
         const bounds = new mapboxgl.LngLatBounds();
 
@@ -242,6 +236,38 @@ export default function SceneOrtLage() {
         // leicht rausgezoomter Start
         map.setZoom(map.getZoom() - 0.35);
 
+if (!isTouchSmall) {
+  const headerH =
+    document.querySelector('.header')?.offsetHeight ?? 124;
+
+  st = ScrollTrigger.create({
+    trigger: '.ortlage',
+    start: `top ${headerH}px`,
+    end: '+=1800',
+    pin: true,
+    pinSpacing: true,
+    scrub: 1,
+
+    onUpdate: (self) => {
+      if (!map.getLayer('walk-line')) return;
+
+      map.setPaintProperty('walk-line', 'line-gradient', [
+        'step',
+        ['line-progress'],
+        '#1F4256',
+        Math.max(self.progress, 0.001),
+        'rgba(46,74,90,0)',
+      ]);
+
+      map.easeTo({
+        bearing: self.progress * 40,
+        pitch: self.progress * 50,
+        duration: 0,
+      });
+    },
+  });
+}
+    
         const headerH = document.querySelector('.header')?.offsetHeight ?? 124;
         const isTouchSmall = window.innerWidth < 760;
         st = ScrollTrigger.create({
