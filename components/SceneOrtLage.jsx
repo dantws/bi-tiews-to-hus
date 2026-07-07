@@ -269,8 +269,9 @@ if (!isTouchSmall) {
 }
     
         const headerH = document.querySelector('.header')?.offsetHeight ?? 124;
-        const isTouchSmall = window.innerWidth < 760;
-        st = ScrollTrigger.create({
+
+if (!isTouchSmall) {
+  st = ScrollTrigger.create({
   trigger: '.ortlage',
   // Mobil: Route zeichnet sich beim Vorbeiscrollen (kein Pin — ruckelfrei auf Touch)
   start: isTouchSmall ? 'top 70%' : `top ${headerH + 0}px`,
