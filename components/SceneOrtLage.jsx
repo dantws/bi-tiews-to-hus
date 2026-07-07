@@ -78,8 +78,12 @@ export default function SceneOrtLage() {
       // Doppelklick-Zoom deaktivieren
       map.doubleClickZoom.disable();
 
-      map.on('load', () => {
-        const createMarker = (point, type) => {
+  map.on('load', () => {
+  map.resize();
+
+  document.querySelector('.map-fallback')?.remove();
+
+  const createMarker = (point, type) => {
           const el = document.createElement('div');
 
           const background =
@@ -238,11 +242,7 @@ export default function SceneOrtLage() {
   scrub: isTouchSmall ? false : 1,
           toggleActions:"play none none reverse",
 
-          map.on("load",()=>{
-
-    map.resize();
-
-});
+        
 
   onUpdate: (self) => {
   if (!map.getLayer('walk-line')) return;
