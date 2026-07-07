@@ -235,7 +235,14 @@ export default function SceneOrtLage() {
   end: isTouchSmall ? 'bottom 60%' : '+=1800',
   pin: !isTouchSmall,
   pinSpacing: true,
-  scrub: 1,
+  scrub: isTouchSmall ? false : 1,
+          toggleActions:"play none none reverse",
+
+          map.on("load",()=>{
+
+    map.resize();
+
+});
 
   onUpdate: (self) => {
   if (!map.getLayer('walk-line')) return;
