@@ -207,13 +207,25 @@ export default function SceneOrtLage() {
           paint: {
             'line-color': '#1F4256',
             'line-width': 4,
-            'line-gradient': [
-              'step',
-              ['line-progress'],
-              '#1F4256',
-              0.001,
-              'rgba(46,74,90,0)',
-            ],
+            const isTouchSmall = window.innerWidth < 760;
+
+'line-gradient': isTouchSmall
+  ? '#1F4256'
+  : [
+      'step',
+      ['line-progress'],
+      '#1F4256',
+      0.001,
+      'rgba(46,74,90,0)',
+    ],
+
+  if (!isTouchSmall) {
+
+   st = ScrollTrigger.create({
+      ...
+   });
+
+}
           },
         });
 
