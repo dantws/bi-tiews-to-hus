@@ -29,17 +29,34 @@ export default function Hero() {
       
       const claim = rootRef.current.querySelector('.hero-claim');
       
-      st = ScrollTrigger.create({
-    trigger: rootRef.current,
-    start: "top top",
-    end: "+=220%",
-    pin: true,
-    pinSpacing: true,
-    scrub: 0.5,
-        onUpdate: (self) => {
-  // Claim wird zwischen 50% und 75% des Scrolls eingeblendet
-  const p = Math.min(Math.max((self.progress - 0.5) / 0.25, 0), 1);
+      const isMobile = window.innerWidth < 760;
 
+st = ScrollTrigger.create({
+  trigger: rootRef.current,
+
+  start: "top top",
+
+  end: isMobile ? "bottom top" : "+=220%",
+
+  pin: !isMobile,
+
+  pinSpacing: !isMobile,
+
+  scrub: isMobile ? false : 0.5,
+
+  onUpdate: (self) => {
+    // Claim wird zwischen 50 % und 75 % eingeblendet
+    const p = Math.min(
+      Math.max((self.progress - 0.5) / 0.25, 0),
+      1
+    );
+
+    gsap.set(claimRef.current, {
+      opacity: p,
+      y: (1 - p) * 30,
+    });
+  },
+});
   if (claim) {
     claim.style.opacity = String(p);
     claim.style.transform = `translateY(${30 * (1 - p)}px)`;
