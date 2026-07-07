@@ -349,7 +349,14 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   background: linear-gradient(180deg, #E2EBEF, #CFDDE3);
 }
 .map-caption {
-  position: absolute; left: 1rem; top: 1rem; z-index: 2;
+   position:relative;
+      left:auto;
+      top:auto;
+      right:auto;
+      bottom:auto;
+
+      margin:1rem;
+      max-width:none;
   background: var(--white); border-radius: calc(var(--radius) - 0.5rem);
   padding: 1rem 1.4rem; font-size: 0.9rem; max-width: 16rem;
   box-shadow: 0 10px 30px rgba(22,48,63,0.12);
