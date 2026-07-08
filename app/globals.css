@@ -99,6 +99,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 ---------------------------------------------------------------------- */
 .header--min { position: fixed; top: 0; left: 0; right: 0; z-index: 50; pointer-events: none; }
 .header-min-inner {
+  position: relative;
   display: flex; justify-content: space-between; align-items: center;
   padding-block: 1.1rem;
 }
@@ -149,13 +150,11 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 .mobile-menu nav { display: flex; flex-direction: column; align-items: center; gap: 1.9rem; text-align: center; }
 .mobile-menu nav a { color: var(--white); text-decoration: none; font-family: var(--font-display); font-size: clamp(1.8rem, 6vw, 2.5rem); transition: color .3s ease; }
 .mobile-menu nav a:hover { color: var(--ocean-300); }
-.menu-logo { height: 72px; width: auto; margin-bottom: 1.25rem; opacity: 0.95; }
 .mobile-menu nav .btn { font-family: var(--font-body); font-size: 0.9rem; margin-top: 0.75rem; }
 
 @media (max-width: 560px) {
   .nav-burger { width: 48px; height: 48px; }
   .nav-book { padding: 0.85rem 1.4rem; font-size: 0.72rem; }
-  .menu-logo { height: 54px; }
 }
 
 /* ----------------------------------------------------------------------
@@ -476,8 +475,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   overflow: hidden;
   padding: clamp(0.75rem, 1.5vw, 1.25rem);
 }
-.buchen-widget iframe { width: 100%; height: 720px; border: 0; }
-@media (max-width: 560px) { .buchen-widget iframe { height: clamp(560px, 78vh, 720px); } }
+.buchen-widget iframe { width: 100%; border: 0; transition: height .25s ease; }
 
 /* ----------------------------------------------------------------------
    12 · FOOTER — tiefes Ostseeblau

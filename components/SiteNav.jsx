@@ -1,16 +1,20 @@
 'use client';
 
 /**
- * NAVIGATION — minimal: zwei schwebende Chips.
- * Burger (immer sichtbar) links · „Direkt buchen" rechts (erst nach dem Hero).
- * Kein Logo in der Leiste — es lebt groß im geöffneten Menü.
+ * NAVIGATION — schwebende Chips.
+ * Burger (immer sichtbar) links · rechts ein Chip, der je nach Seite
+ * entweder „Direkt buchen" oder — auf /veranstaltungen und /buchen —
+ * „Zur Startseite" zeigt (erst nach dem Hero). Kein Logo in der Leiste.
  */
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
+const HOME_LINK_PAGES = ['/veranstaltungen', '/buchen'];
+
 export default function SiteNav() {
   const pathname = usePathname();
   const overlay = pathname === '/';
+  const showHomeLink = HOME_LINK_PAGES.includes(pathname);
   const [past, setPast] = useState(!overlay);
   const [open, setOpen] = useState(false);
 
@@ -47,11 +51,11 @@ export default function SiteNav() {
 
           <a
             className={`nav-chip nav-book${past || open ? ' is-visible' : ''}`}
-            href="/buchen"
+            href={showHomeLink ? '/' : '/buchen'}
             tabIndex={past || open ? 0 : -1}
             aria-hidden={!(past || open)}
           >
-            Direkt buchen
+            {showHomeLink ? 'Zur Startseite' : 'Direkt buchen'}
           </a>
         </div>
       </header>
@@ -59,7 +63,6 @@ export default function SiteNav() {
 
       <div className={`mobile-menu${open ? ' is-open' : ''}`} aria-hidden={!open}>
         <nav aria-label="Menü" onClick={() => setOpen(false)}>
-          <img className="menu-logo" src="/assets/img/logo-white.png" alt="Bi Tiews to Hus" />
           <a href="/#apartment">Das Apartment</a>
           <a href="/#lage">Lage</a>
           <a href="/#geschichte">Geschichte</a>

@@ -1,6 +1,7 @@
 /** UNTERSEITE /buchen — nur das Buchungstool, ruhig gerahmt. */
 import SiteNav from '../../components/SiteNav';
 import Footer from '../../components/Footer';
+import BuchungsWidget from '../../components/BuchungsWidget';
 import { booking } from '../../lib/assets';
 
 export const metadata = {
@@ -21,7 +22,7 @@ export default function BuchenPage() {
             mit persönlichem Kontakt und sofortiger Verfügbarkeit.
           </p>
           <div className="buchen-widget">
-            <iframe
+            <BuchungsWidget
               src={booking.widgetUrl}
               title="Verfügbarkeit prüfen und direkt buchen — Bi Tiews to Hus"
             />
