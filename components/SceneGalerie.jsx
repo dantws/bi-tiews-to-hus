@@ -24,7 +24,7 @@ export default function SceneGalerie() {
   return (
     <section className="section galerie">
       <div className="container">
-        <h2 className="reveal">Bi Tiews to Hus <em className="accent">entdecken</em></h2>
+        <h2 className="reveal">Bildergalerie</h2>
 
         <div className="galerie-grid reveal">
           <figure className="gal g3"><img src={photos.villaReal} alt="Die weiße Villa in der Friedrichstraße" loading="lazy" onClick={() => setIndex(0)} /></figure>
