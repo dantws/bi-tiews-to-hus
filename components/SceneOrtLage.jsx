@@ -67,7 +67,11 @@ export default function SceneOrtLage() {
       );
 
       // Karte verschieben erlaubt
-      map.dragPan.enable();
+      if (window.innerWidth >= 760) {
+  map.dragPan.enable();
+} else {
+  map.dragPan.disable();
+}
 
       // Touch-Zoom auf Smartphones
       map.touchZoomRotate.enable();
@@ -303,10 +307,12 @@ if (!isTouchSmall) {
         />
 
         <div className="map-caption reveal">
-          <strong>350 Meter. 5 Minuten.</strong>
-          <br />
-          Vom Frühstückstisch bis zum ersten Sand unter den Füßen.
-        </div>
+  <strong>350 Meter. 5 Minuten.</strong>
+
+  <span className="map-caption-sub">
+    Vom Frühstückstisch bis zum ersten Sand unter den Füßen.
+  </span>
+</div>
       </div>
 
       <div className="ortlage-text">
