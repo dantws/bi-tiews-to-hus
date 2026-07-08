@@ -405,7 +405,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 
 .ortlage-text { padding: clamp(2.5rem, 6vw, 5rem); align-self: center; }
 .ortlage-text > p { margin-top: 1.25rem; max-width: 36em; }
-.lage-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 2.5rem; margin-top: 2rem; }
+.lage-cols { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem 2.5rem; margin-top: 2rem; }
 .lage-cols p { font-size: 0.9rem; line-height: 1.7; }
 .lage-cols strong { display: inline-block; margin-bottom: 0.3rem; }
 
