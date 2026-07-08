@@ -197,8 +197,6 @@ export default function SceneOrtLage() {
             },
           },
         });
-
-const isTouchSmall = window.innerWidth < 760;
     
         map.addLayer({
   id: 'walk-line',
@@ -268,31 +266,7 @@ if (!isTouchSmall) {
   });
 }
     
-        const headerH = document.querySelector('.header')?.offsetHeight ?? 124;
-
-if (!isTouchSmall) {
-  st = ScrollTrigger.create({
-  trigger: '.ortlage',
-  // Mobil: Route zeichnet sich beim Vorbeiscrollen (kein Pin — ruckelfrei auf Touch)
-  start: isTouchSmall ? 'top 70%' : `top ${headerH + 0}px`,
-  end: isTouchSmall ? 'bottom 60%' : '+=1800',
-  pin: !isTouchSmall,
-  pinSpacing: true,
-  scrub: isTouchSmall ? false : 1,
-          toggleActions:"play none none reverse",
-
-        
-
-  onUpdate: (self) => {
-  if (!map.getLayer('walk-line')) return;
-
-  map.setPaintProperty('walk-line', 'line-gradient', [
-    'step',
-    ['line-progress'],
-    '#1F4256',
-    Math.max(self.progress, 0.001),
-    'rgba(46,74,90,0)',
-  ]);
+       
 
   map.easeTo({
     bearing: self.progress * 40,
@@ -300,6 +274,7 @@ if (!isTouchSmall) {
     duration: 0,
   });
 }
+});
 });
 
     };
