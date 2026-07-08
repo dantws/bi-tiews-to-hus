@@ -8,10 +8,9 @@
 import { photos } from '../lib/assets';
 
 const fragments = [
-  'In Ahlbeck geboren, in eine alteingesessene Fischerfamilie. Der Vater, im Ort nur „Tucker" genannt, nahm den Jungen früh mit hinaus aufs Meer.',
+  'Jürgen Tiews wurde in Ahlbeck geboren, in eine alteingesessene Fischerfamilie. Der Vater, im Ort nur „Tucker" genannt, nahm den Jungen früh mit hinaus aufs Meer.',
   'September 1962. Nachts legt die „Seestern" ab — das hölzerne Fischerboot des Vaters, Kennung AHL 20. Am Ruder: Jürgen Tiews, siebzehn Jahre alt. An Bord: zwei Freunde, ein alter norwegischer Kompass. Keine Seekarte.',
   'Neunzig Meilen offene Ostsee. Dreizehn Stunden. Sturm, ein stotternder Motor, Suchscheinwerfer über dem Wasser. Am Morgen taucht aus dem Dunst ein kleiner Hafen auf: Schweden. Freiheit.',
-  'Der originale Rettungsring der „Seestern" hängt heute im Haus — in der kleinen Kellerbar.',
 ];
 
 export default function SceneGeschichte() {

@@ -92,7 +92,7 @@ export default function SceneOrtLage() {
 
           const background =
             type === 'house'
-              ? '#1F4256'
+              ? '#1A3C3D'
               : '#DECDAA';
 
           const foreground =
@@ -211,14 +211,14 @@ export default function SceneOrtLage() {
     'line-join': 'round',
   },
   paint: {
-    'line-color': '#1F4256',
+    'line-color': '#1A3C3D',
     'line-width': 4,
     'line-gradient': isTouchSmall
-      ? '#1F4256'
+      ? '#1A3C3D'
       : [
           'step',
           ['line-progress'],
-          '#1F4256',
+          '#1A3C3D',
           0.001,
           'rgba(46,74,90,0)',
         ],
@@ -256,7 +256,7 @@ if (!isTouchSmall) {
       map.setPaintProperty('walk-line', 'line-gradient', [
         'step',
         ['line-progress'],
-        '#1F4256',
+        '#1A3C3D',
         Math.max(self.progress, 0.001),
         'rgba(46,74,90,0)',
       ]);
@@ -323,8 +323,8 @@ if (!isTouchSmall) {
         <p className="reveal">
           Ahlbeck gehört zusammen mit Heringsdorf und Bansin zu den drei
           Kaiserbädern auf Usedom. Die Friedrichstraße liegt ruhig zwischen
-          den Häusern der historischen Bäderarchitektur – und doch
-          mitten im Ort: Nach rund 350 Metern beginnt der Strand, die älteste
+          den Häusern der historischen Bäderarchitektur. Nach rund 350 Metern
+          beginnt der Strand, die älteste
           Seebrücke Deutschlands befindet sich gleich daneben. Bäcker, Cafés
           und die Promenade erreichen Sie bequem zu Fuß.
         </p>

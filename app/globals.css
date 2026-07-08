@@ -12,12 +12,12 @@
   --sand-50:   #FBF8F2;
   --sand-100:  #F2ECE2;
   --sand-200:  #E5DDD0;
-  --ocean-900: #16303F;
-  --ocean-700: #2E617F;
-  --ocean-300: #BFD6E2;
+  --ocean-900: #1A3C3D;
+  --ocean-700: #367C7D;
+  --ocean-300: #BFE3E3;
   --steel:     #54707F;
   --ink:       var(--ocean-900);
-  --line:      rgba(22, 48, 63, 0.12);
+  --line:      rgba(26, 60, 61, 0.12);
 
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Karla', 'Helvetica Neue', sans-serif;
@@ -108,7 +108,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   background: var(--ocean-700);
   color: var(--white);
   border: 0; border-radius: 999px;
-  box-shadow: 0 10px 30px rgba(10, 25, 35, 0.28);
+  box-shadow: 0 10px 30px rgba(13, 30, 30, 0.28);
   transition: background .3s ease, opacity .35s ease, transform .35s ease;
   cursor: pointer;
 }
@@ -173,7 +173,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   text-align: center; color: var(--white);
   margin-bottom: auto;
   padding-top: calc(var(--header-height) + 5vh);
-  text-shadow: 0 1px 14px rgba(10, 25, 35, 0.4);
+  text-shadow: 0 1px 14px rgba(13, 30, 30, 0.4);
   will-change: opacity, transform;
 }
 .hero-claim h1 { color: var(--white); font-size: clamp(2.6rem, 6vw, 5rem); }
@@ -188,11 +188,11 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   font-size: 0.92rem; font-weight: 600;
   letter-spacing: 0.18em; text-transform: uppercase;
   padding: 1.1rem 3.2rem; border-radius: 999px;
-  box-shadow: 0 14px 40px rgba(10, 25, 35, 0.35);
+  box-shadow: 0 14px 40px rgba(13, 30, 30, 0.35);
   transition: background .3s ease;
 }
 .hero-cta-banner:hover { background: var(--ocean-900); }
-.hero-cta-sub { color: var(--white); font-size: 1.02rem; text-shadow: 0 1px 10px rgba(10,25,35,0.45); }
+.hero-cta-sub { color: var(--white); font-size: 1.02rem; text-shadow: 0 1px 10px rgba(13,30,30,0.45); }
 
 @media (max-width: 760px) {
   .hero{
@@ -281,7 +281,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   max-width: 1000px;
   margin: clamp(2rem, 5vh, 3rem) auto 0;
 }
-.gal { margin: 0; overflow: hidden; border-radius: var(--radius); box-shadow: 0 12px 30px rgba(22,48,63,0.12); aspect-ratio: 4/3; }
+.gal { margin: 0; overflow: hidden; border-radius: var(--radius); box-shadow: 0 12px 30px rgba(26,60,61,0.12); aspect-ratio: 4/3; }
 .gal img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform .6s ease; }
 .gal:hover img { transform: scale(1.03); }
 .g3 { grid-column: span 2; }  /* Dreierreihe */
@@ -382,7 +382,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
       max-width:none;
   background: var(--white); border-radius: calc(var(--radius) - 0.5rem);
   padding: 1rem 1.4rem; font-size: 0.9rem; max-width: 16rem;
-  box-shadow: 0 10px 30px rgba(22,48,63,0.12);
+  box-shadow: 0 10px 30px rgba(26,60,61,0.12);
 }
 
 .map-caption-sub{
@@ -435,7 +435,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   line-height: 1.4; color: var(--ocean-700);
 }
 .geschichte-zitat cite { display: block; margin-top: 0.7rem; font-family: var(--font-body); font-style: normal; font-size: 0.78rem; letter-spacing: 0.05em; color: var(--steel); }
-.geschichte-bild img, .geschichte-figure img { width: 100%; border-radius: var(--radius); box-shadow: 0 18px 45px rgba(22,48,63,0.16); }
+.geschichte-bild img, .geschichte-figure img { width: 100%; border-radius: var(--radius); box-shadow: 0 18px 45px rgba(26,60,61,0.16); }
 .geschichte-figure figcaption { margin-top: 0.9rem; font-size: 0.82rem; line-height: 1.6; color: var(--steel); }
 .geschichte-bild.arch img { border-radius: 999px 999px var(--radius) var(--radius); }
 .geschichte-bild figcaption { margin-top: 0.9rem; font-size: 0.82rem; line-height: 1.6; color: var(--steel); }
@@ -469,7 +469,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 .buchen-widget {
   margin-top: 2.5rem;
   background: var(--white);
-  box-shadow: 0 16px 40px rgba(22,48,63,.08);
+  box-shadow: 0 16px 40px rgba(26,60,61,.08);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -480,7 +480,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 /* ----------------------------------------------------------------------
    12 · FOOTER — tiefes Ostseeblau
 ---------------------------------------------------------------------- */
-.footer { background: #1D4258; color: var(--white); padding-block: clamp(2.5rem, 6vh, 4rem); }
+.footer { background: #235152; color: var(--white); padding-block: clamp(2.5rem, 6vh, 4rem); }
 .footer h4 { color: var(--white); font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 0.75rem; }
 .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 .footer a { color: var(--ocean-300); text-decoration: none; font-size: 0.9rem; }
