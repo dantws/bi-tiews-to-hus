@@ -45,7 +45,7 @@ export default async function VeranstaltungenPage() {
     <>
       <SiteNav />
       <main className="section">
-        <div className="container" style={{ maxWidth: '980px' }}>
+        <div className="container">
           <span className="eyebrow">Ahlbeck · Heringsdorf · Bansin</span>
           <h1>Veranstaltungen in den <em className="accent">Kaiserbädern</em></h1>
           <p style={{ marginTop: '1.25rem', maxWidth: '38em' }}>

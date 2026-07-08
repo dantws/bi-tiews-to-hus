@@ -14,7 +14,7 @@ export default function BuchenPage() {
     <>
       <SiteNav />
       <main className="section">
-        <div className="container" style={{ maxWidth: '900px' }}>
+        <div className="container">
           <span className="eyebrow">Ihr Aufenthalt</span>
           <h1>Direkt <em className="accent">buchen</em></h1>
           <p style={{ marginTop: '1rem', maxWidth: '36em' }}>

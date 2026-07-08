@@ -1,30 +1,37 @@
 'use client';
 
 /**
- * NAVIGATION — schwebende Chips.
- * Burger (immer sichtbar) links · rechts ein Chip, der je nach Seite
- * entweder „Direkt buchen" oder — auf /veranstaltungen und /buchen —
- * „Zur Startseite" zeigt (erst nach dem Hero). Kein Logo in der Leiste.
+ * NAVIGATION — klassische Leiste (Wortmarke links, Links mittig, CTA rechts).
+ * Transparent über dem Hero-Video, wird nach dem Hero (bzw. sofort auf
+ * Unterseiten) blickdicht mit Schatten. Auf Mobil ersetzen Wortmarke/Links
+ * ein Burger-Button, der das Vollbild-Menü öffnet.
  */
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 const HOME_LINK_PAGES = ['/veranstaltungen', '/buchen'];
 
+const NAV_LINKS = [
+  { href: '/#apartment', label: 'Das Apartment' },
+  { href: '/#lage', label: 'Lage' },
+  { href: '/#geschichte', label: 'Geschichte' },
+  { href: '/veranstaltungen', label: 'Veranstaltungen' },
+];
+
 export default function SiteNav() {
   const pathname = usePathname();
   const overlay = pathname === '/';
   const showHomeLink = HOME_LINK_PAGES.includes(pathname);
-  const [past, setPast] = useState(!overlay);
+  const [solid, setSolid] = useState(!overlay);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (!overlay) { setPast(true); return; }
+    if (!overlay) { setSolid(true); return; }
     const onScroll = () => {
       // Unterkante des Hero messen — funktioniert auch mit ScrollTrigger-Pin
       const hero = document.querySelector('.hero');
-      if (hero) setPast(hero.getBoundingClientRect().bottom <= 80);
-      else setPast(window.scrollY > window.innerHeight * 0.85);
+      if (hero) setSolid(hero.getBoundingClientRect().bottom <= 80);
+      else setSolid(window.scrollY > window.innerHeight * 0.85);
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -38,25 +45,30 @@ export default function SiteNav() {
 
   return (
     <>
-      <header className="header header--min">
-        <div className="container header-min-inner">
-          <button
-            className={`nav-chip nav-burger${open ? ' is-open' : ''}`}
-            aria-label={open ? 'Menü schließen' : 'Menü öffnen'}
-            aria-expanded={open}
-            onClick={() => setOpen(!open)}
-          >
-            <span /><span /><span />
-          </button>
+      <header className={`header header--bar${solid || open ? ' is-solid' : ''}`}>
+        <div className="container navbar-inner">
+          <a className="navbar-brand" href="/">Bi Tiews to Hus</a>
 
-          <a
-            className={`nav-chip nav-book${past || open ? ' is-visible' : ''}`}
-            href={showHomeLink ? '/' : '/buchen'}
-            tabIndex={past || open ? 0 : -1}
-            aria-hidden={!(past || open)}
-          >
-            {showHomeLink ? 'Zur Startseite' : 'Direkt buchen'}
-          </a>
+          <nav className="navbar-links" aria-label="Hauptnavigation">
+            {NAV_LINKS.map((l) => (
+              <a key={l.href} href={l.href}>{l.label}</a>
+            ))}
+          </nav>
+
+          <div className="navbar-actions">
+            <a className="btn btn--fill navbar-cta" href={showHomeLink ? '/' : '/buchen'}>
+              {showHomeLink ? 'Zur Startseite' : 'Direkt buchen'}
+            </a>
+
+            <button
+              className={`navbar-burger${open ? ' is-open' : ''}`}
+              aria-label={open ? 'Menü schließen' : 'Menü öffnen'}
+              aria-expanded={open}
+              onClick={() => setOpen(!open)}
+            >
+              <span /><span /><span />
+            </button>
+          </div>
         </div>
       </header>
       {!overlay && <div className="header-spacer" aria-hidden="true" />}

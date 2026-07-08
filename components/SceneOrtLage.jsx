@@ -16,6 +16,25 @@ import { map as mapData } from '../lib/assets';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const nearbyGroups = [
+  {
+    title: 'Highlights in der Nähe',
+    items: [
+      { label: 'Seebrücke Ahlbeck', distance: 'ca. 400 m' },
+      { label: 'Promenade', distance: 'ca. 300 m' },
+      { label: 'Świnoujście in Polen', distance: 'ca. 2 km' },
+    ],
+  },
+  {
+    title: 'Strände in der Umgebung',
+    items: [
+      { label: 'Strand Ahlbeck', distance: '350 m' },
+      { label: 'Strand Heringsdorf', distance: 'ca. 3 km' },
+      { label: 'Strand Bansin', distance: 'ca. 6 km' },
+    ],
+  },
+];
+
 export default function SceneOrtLage() {
   const mapContainer = useRef(null);
 
@@ -330,26 +349,19 @@ if (!isTouchSmall) {
         </p>
 
         <div className="lage-cols reveal">
-          <p>
-            <strong>Highlights in der Nähe</strong>
-            <br />
-            Seebrücke Ahlbeck – ca. 400 m
-            <br />
-            Promenade – ca. 300 m
-            <br />
-            Świnoujście in Polen – ca. 2 km
-          </p>
-
-          <p>
-            <strong>Strände in der Umgebung</strong>
-            <br />
-            Strand Ahlbeck – 350 m
-            <br />
-            Strand Heringsdorf – ca. 3 km
-            <br />
-            Strand Bansin – ca. 6 km
-          </p>
-
+          {nearbyGroups.map((group) => (
+            <div className="lage-card" key={group.title}>
+              <h4>{group.title}</h4>
+              <ul>
+                {group.items.map((item) => (
+                  <li key={item.label}>
+                    <span>{item.label}</span>
+                    <span className="lage-card-distance">{item.distance}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>
