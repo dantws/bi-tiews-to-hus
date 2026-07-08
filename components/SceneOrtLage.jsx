@@ -273,7 +273,7 @@ if (!isTouchSmall) {
     pitch: self.progress * 50,
     duration: 0,
   });
-}
+},
 });
 });
 
