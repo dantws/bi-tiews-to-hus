@@ -18,7 +18,7 @@ export default function SceneGeschichte() {
     <section className="section geschichte" id="geschichte">
       <div className="container">
         <div className="geschichte-grid">
-          <div >
+          <div>
             <span className="eyebrow reveal">Die Geschichte</span>
             <h2 className="reveal">Über die Ostsee aus der DDR<br />in die Freiheit.</h2>
             {fragments.map((f, i) => (

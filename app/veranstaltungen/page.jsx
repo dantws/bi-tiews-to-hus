@@ -10,8 +10,15 @@ import Footer from '../../components/Footer';
 import { eventHighlights, officialCalendarUrl } from '../../lib/events';
 
 export const metadata = {
-  title: 'Veranstaltungen in den Kaiserbädern — Bi Tiews to Hus',
-  description: 'Konzerte, Feste und Highlights in Ahlbeck, Heringsdorf und Bansin — direkt vor der Tür von Bi Tiews to Hus.',
+  title: 'Veranstaltungen in den Kaiserbädern',
+  description:
+    'Konzerte, Feste und Highlights in Ahlbeck, Heringsdorf und Bansin — direkt vor der Tür von Bi Tiews to Hus.',
+  alternates: { canonical: '/veranstaltungen' },
+  openGraph: {
+    title: 'Veranstaltungen in den Kaiserbädern — Bi Tiews to Hus',
+    description: 'Konzerte, Feste und Highlights in den drei Kaiserbädern auf Usedom.',
+    url: '/veranstaltungen',
+  },
 };
 
 export const revalidate = 21600; // 6 Stunden

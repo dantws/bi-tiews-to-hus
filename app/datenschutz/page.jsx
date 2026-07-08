@@ -1,7 +1,7 @@
 import SiteNav from '../../components/SiteNav';
 import Footer from '../../components/Footer';
 
-export const metadata = { title: 'Datenschutz — Bi Tiews to Hus' };
+export const metadata = { title: 'Datenschutz', alternates: { canonical: '/datenschutz' } };
 
 export default function Datenschutz() {
   return (
@@ -9,7 +9,7 @@ export default function Datenschutz() {
     <SiteNav />
     <main className="container" style={{ paddingBlock: '8rem', maxWidth: '46rem' }}>
       <span className="eyebrow">Rechtliches</span>
-      <h1 className="display-md">Datenschutzerklärung</h1>
+      <h1>Datenschutzerklärung</h1>
       <div style={{ marginTop: '2.5rem', lineHeight: 1.8 }}>
         <p><strong>Verantwortlicher</strong></p>
         <p>[Name und Kontaktdaten des Eigentümers, siehe Impressum]</p>
@@ -30,7 +30,7 @@ export default function Datenschutz() {
           (Rechtsgrundlagen, Speicherdauern, Betroffenenrechte, ggf. Consent-Lösung).
         </p>
       </div>
-      <p style={{ marginTop: '3rem' }}><a href="/" style={{ color: 'var(--baltic)' }}>← Zurück zur Startseite</a></p>
+      <p style={{ marginTop: '3rem' }}><a href="/" style={{ color: 'var(--ocean-700)' }}>← Zurück zur Startseite</a></p>
     </main>
     <Footer />
     </>

@@ -5,8 +5,15 @@ import BuchungsWidget from '../../components/BuchungsWidget';
 import { booking } from '../../lib/assets';
 
 export const metadata = {
-  title: 'Direkt buchen — Bi Tiews to Hus',
-  description: 'Verfügbarkeit prüfen und zum Bestpreis direkt beim Eigentümer buchen.',
+  title: 'Direkt buchen',
+  description:
+    'Verfügbarkeit prüfen und die Ferienwohnung Bi Tiews to Hus im Seebad Ahlbeck zum Bestpreis direkt beim Eigentümer buchen — ohne Plattformgebühren.',
+  alternates: { canonical: '/buchen' },
+  openGraph: {
+    title: 'Direkt buchen — Bi Tiews to Hus',
+    description: 'Verfügbarkeit prüfen und zum Bestpreis direkt beim Eigentümer buchen.',
+    url: '/buchen',
+  },
 };
 
 export default function BuchenPage() {
