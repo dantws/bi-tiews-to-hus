@@ -79,10 +79,10 @@ export default function Hero() {
       <div className="hero-inner">
         <div className="hero-claim">
           <h1><span className="hero-welcome">Willkommen</span>Bi Tiews to Hus</h1>
-          <p className="hero-cta-sub">Zum Bestpreis direkt beim Eigentümer.</p>
           <div className="hero-cta">
             <a className="hero-cta-banner" href="/buchen">Direkt buchen</a>
           </div>
+           <p className="hero-cta-sub">Zum Bestpreis direkt beim Eigentümer.</p>
         </div>
       </div>
     </section>
