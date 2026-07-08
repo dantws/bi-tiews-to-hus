@@ -1,22 +1,16 @@
 'use client';
 
 /**
- * NAVIGATION — klassische Leiste (Wortmarke links, Links mittig, CTA rechts).
- * Transparent über dem Hero-Video, wird nach dem Hero (bzw. sofort auf
- * Unterseiten) blickdicht mit Schatten. Auf Mobil ersetzen Wortmarke/Links
- * ein Burger-Button, der das Vollbild-Menü öffnet.
+ * NAVIGATION — Wortmarke links, rechts CTA-Pille + runder Burger.
+ * Sektionslinks liegen ausschließlich im Vollbild-Menü (Burger).
+ * Über dem Hero: Outline-CTA (weiß) + navy Burger-Kreis.
+ * Nach dem Hero / auf Unterseiten: weiße CTA-Pille + navy Burger-Kreis.
+ * Menü offen: weiße CTA-Pille + weißer Kreis mit navy X.
  */
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 const HOME_LINK_PAGES = ['/veranstaltungen', '/buchen'];
-
-const NAV_LINKS = [
-  { href: '/#apartment', label: 'Das Apartment' },
-  { href: '/#lage', label: 'Lage' },
-  { href: '/#geschichte', label: 'Geschichte' },
-  { href: '/veranstaltungen', label: 'Veranstaltungen' },
-];
 
 export default function SiteNav() {
   const pathname = usePathname();
@@ -45,18 +39,12 @@ export default function SiteNav() {
 
   return (
     <>
-      <header className={`header header--bar${solid || open ? ' is-solid' : ''}`}>
+      <header className={`header header--bar${solid ? ' is-solid' : ''}${open ? ' is-open' : ''}`}>
         <div className="container navbar-inner">
           <a className="navbar-brand" href="/">Bi Tiews to Hus</a>
 
-          <nav className="navbar-links" aria-label="Hauptnavigation">
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href}>{l.label}</a>
-            ))}
-          </nav>
-
           <div className="navbar-actions">
-            <a className="btn btn--fill navbar-cta" href={showHomeLink ? '/' : '/buchen'}>
+            <a className="navbar-cta" href={showHomeLink ? '/' : '/buchen'}>
               {showHomeLink ? 'Zur Startseite' : 'Direkt buchen'}
             </a>
 

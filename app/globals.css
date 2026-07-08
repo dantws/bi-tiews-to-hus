@@ -94,21 +94,15 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 }
 
 /* ----------------------------------------------------------------------
-   3 · NAVIGATION — klassische Leiste (Wortmarke · Links · CTA)
-   Transparent über dem Hero, blickdicht mit Schatten sobald gescrollt
-   oder auf Unterseiten.
+   3 · NAVIGATION — Wortmarke links, rechts CTA-Pille + runder Burger.
+   Keine Inline-Links: Sektionen liegen im Vollbild-Menü.
+   Über dem Hero: Outline-CTA weiß · navy Burger-Kreis.
+   Gescrollt / Unterseiten: weiße CTA-Pille · navy Burger-Kreis.
+   Menü offen: weiße CTA-Pille · weißer Kreis mit navy X.
 ---------------------------------------------------------------------- */
 .header--bar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  background: transparent;
-  box-shadow: none;
-  transition: background-color .35s ease, box-shadow .35s ease, border-color .35s ease;
-  border-bottom: 1px solid transparent;
-}
-.header--bar.is-solid {
-  background: var(--white);
-  box-shadow: 0 1px 0 rgba(6,29,65,0.06), 0 12px 30px rgba(6,29,65,0.06);
-  border-bottom-color: var(--line);
+  pointer-events: none;
 }
 .navbar-inner {
   display: flex; align-items: center; justify-content: space-between;
@@ -117,6 +111,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 }
 
 .navbar-brand {
+  pointer-events: auto;
   font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(1.15rem, 1.6vw, 1.4rem);
@@ -126,50 +121,62 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   transition: color .35s ease;
 }
 .header--bar.is-solid .navbar-brand { color: var(--ink); }
+.header--bar.is-open .navbar-brand { color: var(--white); }
 
-.navbar-links {
-  display: flex;
-  align-items: center;
-  gap: clamp(1.5rem, 2.5vw, 2.5rem);
-}
-.navbar-links a {
-  color: var(--white);
-  text-decoration: none;
-  font-size: 0.76rem; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  transition: color .35s ease, opacity .2s ease;
-  opacity: 0.9;
-}
-.navbar-links a:hover { opacity: 1; }
-.header--bar.is-solid .navbar-links a { color: var(--ink); }
+.navbar-actions { display: flex; align-items: center; gap: 1rem; }
 
-.navbar-actions { display: flex; align-items: center; gap: 1.25rem; }
-
+/* CTA-Pille: über dem Hero Outline weiß, sonst weiß gefüllt */
 .navbar-cta {
-  padding: 0.8rem 1.7rem;
-  font-size: 0.74rem;
+  pointer-events: auto;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
   white-space: nowrap;
+  padding: 0.95rem 1.9rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--white);
+  color: var(--white);
+  background: transparent;
+  transition: background .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.navbar-cta:hover { background: var(--white); color: var(--ocean-700); }
+.header--bar.is-solid .navbar-cta,
+.header--bar.is-open .navbar-cta {
+  background: var(--white);
+  color: var(--ocean-700);
+  border-color: var(--white);
+  box-shadow: 0 10px 30px rgba(3, 14, 33, 0.18);
+}
+.header--bar.is-solid .navbar-cta:hover,
+.header--bar.is-open .navbar-cta:hover {
+  background: var(--ocean-700);
+  color: var(--white);
+  border-color: var(--ocean-700);
 }
 
-/* Burger: nur auf Mobil sichtbar, öffnet das Vollbild-Menü */
+/* Burger: runder Chip, drei Linien -> X */
 .navbar-burger {
-  display: none;
-  width: 44px; height: 44px;
+  pointer-events: auto;
+  display: flex;
+  width: 54px; height: 54px;
+  border-radius: 50%;
   flex-direction: column;
   align-items: center; justify-content: center;
   gap: 5px; padding: 0; z-index: 51; position: relative;
-  background: none; border: 0; cursor: pointer;
+  background: var(--ocean-700);
+  border: 0; cursor: pointer;
+  box-shadow: 0 10px 30px rgba(3, 14, 33, 0.18);
+  transition: background .3s ease;
 }
-.navbar-burger span { display: block; width: 20px; height: 2px; background: var(--white); border-radius: 2px; transition: transform .3s ease, opacity .3s ease, background .35s ease; }
-.header--bar.is-solid .navbar-burger span { background: var(--ink); }
+.navbar-burger:hover { background: var(--ocean-900); }
+.navbar-burger span { display: block; width: 20px; height: 2px; background: var(--white); border-radius: 2px; transition: transform .3s ease, opacity .3s ease, background .3s ease; }
+.navbar-burger.is-open { background: var(--white); }
+.navbar-burger.is-open:hover { background: var(--sand-100); }
+.navbar-burger.is-open span { background: var(--ocean-700); }
 .navbar-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .navbar-burger.is-open span:nth-child(2) { opacity: 0; }
 .navbar-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-@media (max-width: 900px) {
-  .navbar-links { display: none; }
-  .navbar-burger { display: flex; }
-}
 
 .header-spacer { height: var(--header-height); }
 
@@ -188,7 +195,8 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 .mobile-menu nav .btn { font-family: var(--font-body); font-size: 0.9rem; margin-top: 0.75rem; }
 
 @media (max-width: 560px) {
-  .navbar-cta { padding: 0.7rem 1.3rem; font-size: 0.68rem; }
+  .navbar-cta { padding: 0.75rem 1.3rem; font-size: 0.68rem; }
+  .navbar-burger { width: 48px; height: 48px; }
 }
 
 /* ----------------------------------------------------------------------
@@ -197,6 +205,13 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 .hero { position: relative; overflow: hidden; background: var(--ocean-700); }
 .hero-media { position: absolute; inset: 0; }
 .hero-media video { width: 100%; height: 100%; object-fit: cover; }
+/* Video leicht abdunkeln — Nav und Claim tragen besser */
+.hero-media::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(rgba(3, 14, 33, 0.4), rgba(3, 14, 33, 0.22) 40%, rgba(3, 14, 33, 0.35));
+  pointer-events: none;
+}
 .hero-inner {
   position: relative;
   min-height: 100dvh;
