@@ -103,6 +103,19 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 .header--bar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
   pointer-events: none;
+  background: transparent;
+  box-shadow: none;
+  transition: background-color .35s ease, box-shadow .35s ease;
+}
+/* Am Hero vorbei / auf Unterseiten: fixe weiße Leiste mit Schatten */
+.header--bar.is-solid {
+  background: var(--white);
+  box-shadow: 0 1px 0 rgba(6,29,65,0.06), 0 10px 30px rgba(6,29,65,0.07);
+}
+/* Menü offen: Leiste transparent, damit das navy Overlay durchscheint */
+.header--bar.is-open {
+  background: transparent;
+  box-shadow: none;
 }
 .navbar-inner {
   display: flex; align-items: center; justify-content: space-between;
@@ -399,11 +412,14 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 ---------------------------------------------------------------------- */
 .ortlage {
   display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+  align-items: stretch;
   background: var(--sand-100);
   max-width: var(--max-w);
   margin-inline: auto;
+  padding: clamp(1.75rem, 4vw, 3rem) var(--gutter);
 }
-.ortlage-map { position: relative; min-height: 560px; margin: clamp(1rem, 3vw, 2.5rem); border-radius: var(--radius); overflow: hidden; }
+.ortlage-map { position: relative; min-height: 520px; border-radius: var(--radius); overflow: hidden; }
 .ortlage-map .map-el { position: absolute; inset: 0; }
 .map-fallback {
   position: absolute; inset: 0;
@@ -465,7 +481,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 
 .map-caption strong { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; display: block; }
 
-.ortlage-text { padding: clamp(2.5rem, 6vw, 5rem); align-self: center; }
+.ortlage-text { padding: 0; align-self: center; }
 .ortlage-text > p { margin-top: 1.25rem; max-width: 36em; }
 .lage-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
 .lage-card { border: 1px solid var(--line); padding: 1.75rem; }
@@ -483,7 +499,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   .ortlage-map { min-height: 60vh; }
 }
 @media (max-width: 560px) {
-  .ortlage-map { margin: 0.75rem; min-height: 56svh; }
+  .ortlage-map { min-height: 56svh; }
   .map-caption { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; max-width: none; }
 }
 

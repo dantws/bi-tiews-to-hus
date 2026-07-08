@@ -26,6 +26,12 @@ export default function Hero() {
 
       v.pause();
 
+      // Claim bleibt durchgehend sichtbar (kein Ein-/Ausblenden).
+      if (claim) {
+        claim.style.opacity = '1';
+        claim.style.transform = 'none';
+      }
+
       st = ScrollTrigger.create({
         trigger: rootRef.current,
         start: 'top top',
@@ -34,14 +40,6 @@ export default function Hero() {
         pinSpacing: !isMobile,
         scrub: isMobile ? false : 0.5,
         onUpdate: (self) => {
-          // Claim ist sofort sichtbar und blendet erst gegen Ende aus.
-          const p = 1 - Math.min(Math.max((self.progress - 0.6) / 0.35, 0), 1);
-
-          if (claim) {
-            claim.style.opacity = String(p);
-            claim.style.transform = `translateY(${-24 * (1 - p)}px)`;
-          }
-
           if (!isMobile) {
             const t = Math.min(self.progress * dur, dur - 0.05);
             if (Math.abs(v.currentTime - t) > 0.02) {
