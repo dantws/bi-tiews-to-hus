@@ -18,8 +18,7 @@ export default function BuchenPage() {
           <span className="eyebrow">Ihr Aufenthalt</span>
           <h1>Direkt <em className="accent">buchen</em></h1>
           <p style={{ marginTop: '1rem', maxWidth: '36em' }}>
-            Zum Bestpreis direkt beim Eigentümer — ohne Plattformgebühren,
-            mit persönlichem Kontakt und sofortiger Verfügbarkeit.
+            Zum Bestpreis direkt beim Eigentümer.
           </p>
           <div className="buchen-widget">
             <BuchungsWidget
