@@ -268,16 +268,9 @@ if (!isTouchSmall) {
     
        
 
-  map.easeTo({
-    bearing: self.progress * 40,
-    pitch: self.progress * 50,
-    duration: 0,
-  });
-},
-});
-});
 
-    };
+
+    });
 
     // Mapbox (≈1,5 MB JS + Tiles) erst laden, wenn die Sektion in die Nähe scrollt
     if ('IntersectionObserver' in window && mapContainer.current) {
