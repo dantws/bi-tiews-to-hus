@@ -265,12 +265,8 @@ if (!isTouchSmall) {
     },
   });
 }
-    
-       
-
-
-
     });
+      };
 
     // Mapbox (≈1,5 MB JS + Tiles) erst laden, wenn die Sektion in die Nähe scrollt
     if ('IntersectionObserver' in window && mapContainer.current) {
