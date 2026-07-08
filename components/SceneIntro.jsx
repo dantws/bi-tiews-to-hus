@@ -1,4 +1,4 @@
-/** INTRO — Beschreibung links, Kontakt-/Anfahrtsspalte rechts (Referenz-Anatomie). */
+/** INTRO — Beschreibung links, Adressspalte mit Routen-Button rechts. */
 export default function SceneIntro() {
   return (
     <section className="section" id="apartment">
@@ -31,10 +31,16 @@ export default function SceneIntro() {
           </p>
         </div>
         <aside className="intro-side">
-          <h4>Kontakt</h4>
-          <p>Direkt beim Eigentümer<br />Antwort meist am selben Tag</p>
-          <h4>Anfahrt</h4>
+          <h4>Adresse</h4>
           <p>Friedrichstraße 2<br />17419 Seebad Ahlbeck<br />Insel Usedom</p>
+          <a
+            className="btn btn--fill intro-route"
+            href="https://www.google.com/maps/dir/?api=1&destination=Friedrichstra%C3%9Fe%202%2C%2017419%20Seebad%20Ahlbeck%2C%20Deutschland"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Route planen
+          </a>
         </aside>
       </div>
     </section>
