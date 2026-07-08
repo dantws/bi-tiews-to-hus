@@ -318,54 +318,53 @@ if (!isTouchSmall) {
 
     return (
     <section className="ortlage" id="lage">
-      <div className="ortlage-map">
-        <div className="map-fallback" aria-hidden="true">
-          Karte lädt — Mapbox-Token erforderlich
+      <div className="ortlage-inner">
+        <div className="ortlage-map">
+          <div className="map-fallback" aria-hidden="true">
+            Karte lädt — Mapbox-Token erforderlich
+          </div>
+
+          <div
+            ref={mapContainer}
+            className="map-el"
+            aria-label="Karte: Bi Tiews to Hus und Umgebung"
+          />
+
+          <div className="map-caption reveal">
+            <strong>350 Meter. 5 Minuten.</strong>
+            <span className="map-caption-sub">
+              Vom Frühstückstisch bis zum ersten Sand unter den Füßen.
+            </span>
+          </div>
         </div>
 
-        <div
-          ref={mapContainer}
-          className="map-el"
-          aria-label="Karte: Bi Tiews to Hus und Umgebung"
-        />
+        <div className="ortlage-text">
+          <h2 className="reveal">Ruhige Lage mit Nähe zum Strand</h2>
 
-        <div className="map-caption reveal">
-  <strong>350 Meter. 5 Minuten.</strong>
+          <p className="reveal">
+            Ahlbeck gehört zusammen mit Heringsdorf und Bansin zu den drei
+            Kaiserbädern auf Usedom. Die Friedrichstraße liegt ruhig zwischen
+            den Häusern der historischen Bäderarchitektur. Nach rund 350 Metern
+            beginnt der Strand, die älteste Seebrücke Deutschlands befindet sich
+            gleich daneben. Bäcker, Cafés und die Promenade erreichen Sie bequem
+            zu Fuß.
+          </p>
 
-  <span className="map-caption-sub">
-    Vom Frühstückstisch bis zum ersten Sand unter den Füßen.
-  </span>
-</div>
-      </div>
-
-      <div className="ortlage-text">
-        <h2 className="reveal">
-          Ruhige Lage mit Nähe zum Strand
-        </h2>
-
-        <p className="reveal">
-          Ahlbeck gehört zusammen mit Heringsdorf und Bansin zu den drei
-          Kaiserbädern auf Usedom. Die Friedrichstraße liegt ruhig zwischen
-          den Häusern der historischen Bäderarchitektur. Nach rund 350 Metern
-          beginnt der Strand, die älteste
-          Seebrücke Deutschlands befindet sich gleich daneben. Bäcker, Cafés
-          und die Promenade erreichen Sie bequem zu Fuß.
-        </p>
-
-        <div className="lage-cols reveal">
-          {nearbyGroups.map((group) => (
-            <div className="lage-card" key={group.title}>
-              <h4>{group.title}</h4>
-              <ul>
-                {group.items.map((item) => (
-                  <li key={item.label}>
-                    <span>{item.label}</span>
-                    <span className="lage-card-distance">{item.distance}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="lage-cols reveal">
+            {nearbyGroups.map((group) => (
+              <div className="lage-card" key={group.title}>
+                <h4>{group.title}</h4>
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item.label}>
+                      <span>{item.label}</span>
+                      <span className="lage-card-distance">{item.distance}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
