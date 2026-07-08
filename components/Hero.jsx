@@ -34,11 +34,12 @@ export default function Hero() {
         pinSpacing: !isMobile,
         scrub: isMobile ? false : 0.5,
         onUpdate: (self) => {
-          const p = Math.min(Math.max((self.progress - 0.5) / 0.25, 0), 1);
+          // Claim ist sofort sichtbar und blendet erst gegen Ende aus.
+          const p = 1 - Math.min(Math.max((self.progress - 0.6) / 0.35, 0), 1);
 
           if (claim) {
             claim.style.opacity = String(p);
-            claim.style.transform = `translateY(${30 * (1 - p)}px)`;
+            claim.style.transform = `translateY(${-24 * (1 - p)}px)`;
           }
 
           if (!isMobile) {
@@ -77,12 +78,11 @@ export default function Hero() {
 
       <div className="hero-inner">
         <div className="hero-claim">
-          <h1>Bi Tiews to Hus</h1>
-        </div>
-
-        <div className="hero-cta">
-          <a className="hero-cta-banner" href="/buchen">Direkt buchen</a>
+          <h1><span className="hero-welcome">Willkommen</span>Bi Tiews to Hus</h1>
           <p className="hero-cta-sub">Zum Bestpreis direkt beim Eigentümer.</p>
+          <div className="hero-cta">
+            <a className="hero-cta-banner" href="/buchen">Direkt buchen</a>
+          </div>
         </div>
       </div>
     </section>
