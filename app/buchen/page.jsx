@@ -14,10 +14,10 @@ export default function BuchenPage() {
     <>
       <SiteNav />
       <main className="section">
-        <div className="container">
+        <div className="container buchen-page">
           <span className="eyebrow">Ihr Aufenthalt</span>
           <h1>Direkt <em className="accent">buchen</em></h1>
-          <p style={{ marginTop: '1rem', maxWidth: '36em' }}>
+          <p>
             Zum Bestpreis direkt beim Eigentümer.
           </p>
           <div className="buchen-widget">

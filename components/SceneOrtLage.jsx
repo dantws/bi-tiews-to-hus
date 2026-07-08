@@ -164,9 +164,12 @@ export default function SceneOrtLage() {
                 </svg>
               `;
 
-          el.innerHTML = icon;
-
-          el.style.cssText = `
+          // Inneres Element trägt Optik + Hover-Skalierung. Mapbox setzt die
+          // Positionierung per transform auf `el` — daher darf nur `inner`
+          // skaliert werden, sonst springt der Marker in die Kartenecke.
+          const inner = document.createElement('div');
+          inner.innerHTML = icon;
+          inner.style.cssText = `
             width:44px;
             height:44px;
             border-radius:50%;
@@ -181,13 +184,14 @@ export default function SceneOrtLage() {
             cursor:pointer;
             transition:transform .18s ease;
           `;
+          el.appendChild(inner);
 
           el.addEventListener('mouseenter', () => {
-            el.style.transform = 'scale(1.08)';
+            inner.style.transform = 'scale(1.08)';
           });
 
           el.addEventListener('mouseleave', () => {
-            el.style.transform = 'scale(1)';
+            inner.style.transform = 'scale(1)';
           });
 
           new mapboxgl.Marker({
