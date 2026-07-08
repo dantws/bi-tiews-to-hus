@@ -111,7 +111,7 @@ export default function SceneOrtLage() {
 
           const background =
             type === 'house'
-              ? '#1A3C3D'
+              ? '#061D41'
               : '#DECDAA';
 
           const foreground =
@@ -230,14 +230,14 @@ export default function SceneOrtLage() {
     'line-join': 'round',
   },
   paint: {
-    'line-color': '#1A3C3D',
+    'line-color': '#061D41',
     'line-width': 4,
     'line-gradient': isTouchSmall
-      ? '#1A3C3D'
+      ? '#061D41'
       : [
           'step',
           ['line-progress'],
-          '#1A3C3D',
+          '#061D41',
           0.001,
           'rgba(46,74,90,0)',
         ],
@@ -275,7 +275,7 @@ if (!isTouchSmall) {
       map.setPaintProperty('walk-line', 'line-gradient', [
         'step',
         ['line-progress'],
-        '#1A3C3D',
+        '#061D41',
         Math.max(self.progress, 0.001),
         'rgba(46,74,90,0)',
       ]);

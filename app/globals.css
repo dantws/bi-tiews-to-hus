@@ -1,6 +1,6 @@
 /* ======================================================================
    BI TIEWS TO HUS — Konsolidierte Fassung v5
-   Design: Luxus-Ostseehotel. Palette: Weiß · Ostseeblau · helles Sandbeige.
+   Design: Luxus-Ostseehotel. Palette: Weiß · tiefes Navy · helles Grau.
    Eine Datei, keine Altlasten — deckt exakt die verwendeten Komponenten ab.
    ====================================================================== */
 
@@ -9,18 +9,18 @@
 ---------------------------------------------------------------------- */
 :root {
   --white:     #FFFFFF;
-  --sand-50:   #FBF8F2;
-  --sand-100:  #F2ECE2;
-  --sand-200:  #E5DDD0;
-  --ocean-900: #1A3C3D;
-  --ocean-700: #367C7D;
-  --ocean-300: #BFE3E3;
-  --steel:     #54707F;
-  --ink:       var(--ocean-900);
-  --line:      rgba(26, 60, 61, 0.12);
+  --sand-50:   #F5F6F8;
+  --sand-100:  #E6E7EB;
+  --sand-200:  #D6D9E0;
+  --ocean-900: #030E21;
+  --ocean-700: #061D41;
+  --ocean-300: #E6E7EB;
+  --steel:     #6B7689;
+  --ink:       var(--ocean-700);
+  --line:      rgba(6, 29, 65, 0.12);
 
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Karla', 'Helvetica Neue', sans-serif;
+  --font-display: 'Cormorant Infant', Georgia, serif;
+  --font-body: 'Outfit', 'Helvetica Neue', sans-serif;
 
   --max-w: 1300px;
   --gutter: clamp(1.5rem, 4.5vw, 3.5rem);
@@ -107,7 +107,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 }
 .header--bar.is-solid {
   background: var(--white);
-  box-shadow: 0 1px 0 rgba(26,60,61,0.06), 0 12px 30px rgba(26,60,61,0.06);
+  box-shadow: 0 1px 0 rgba(6,29,65,0.06), 0 12px 30px rgba(6,29,65,0.06);
   border-bottom-color: var(--line);
 }
 .navbar-inner {
@@ -176,7 +176,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 /* Vollbild-Menü */
 .mobile-menu {
   position: fixed; inset: 0; z-index: 49;
-  background: var(--ocean-900);
+  background: var(--ocean-700);
   display: flex; align-items: center; justify-content: center;
   opacity: 0; pointer-events: none;
   transition: opacity .35s ease;
@@ -194,7 +194,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 /* ----------------------------------------------------------------------
    4 · HERO — Drohnenflug, Nav liegt darüber
 ---------------------------------------------------------------------- */
-.hero { position: relative; overflow: hidden; background: var(--ocean-900); }
+.hero { position: relative; overflow: hidden; background: var(--ocean-700); }
 .hero-media { position: absolute; inset: 0; }
 .hero-media video { width: 100%; height: 100%; object-fit: cover; }
 .hero-inner {
@@ -207,7 +207,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   text-align: center; color: var(--white);
   margin-bottom: auto;
   padding-top: calc(var(--header-height) + 5vh);
-  text-shadow: 0 1px 14px rgba(13, 30, 30, 0.4);
+  text-shadow: 0 1px 14px rgba(3, 14, 33, 0.4);
   will-change: opacity, transform;
 }
 .hero-claim h1 { color: var(--white); font-size: clamp(2.6rem, 6vw, 5rem); }
@@ -222,11 +222,11 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   font-size: 0.92rem; font-weight: 600;
   letter-spacing: 0.18em; text-transform: uppercase;
   padding: 1.1rem 3.2rem; border-radius: 999px;
-  box-shadow: 0 14px 40px rgba(13, 30, 30, 0.35);
+  box-shadow: 0 14px 40px rgba(3, 14, 33, 0.35);
   transition: background .3s ease;
 }
 .hero-cta-banner:hover { background: var(--ocean-900); }
-.hero-cta-sub { color: var(--white); font-size: 1.02rem; text-shadow: 0 1px 10px rgba(13,30,30,0.45); }
+.hero-cta-sub { color: var(--white); font-size: 1.02rem; text-shadow: 0 1px 10px rgba(3,14,33,0.45); }
 
 @media (max-width: 760px) {
   .hero{
@@ -315,9 +315,9 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   max-width: 1000px;
   margin: clamp(2rem, 5vh, 3rem) auto 0;
 }
-.gal { margin: 0; overflow: hidden; border-radius: var(--radius); box-shadow: 0 12px 30px rgba(26,60,61,0.12); aspect-ratio: 4/3; }
-.gal img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; transition: transform .6s ease; }
-.gal:hover img { transform: scale(1.03); }
+.gal { margin: 0; overflow: hidden; border-radius: var(--radius); box-shadow: 0 12px 30px rgba(6,29,65,0.12); aspect-ratio: 4/3; }
+.gal img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; will-change: transform; transition: transform .45s ease; }
+.gal:hover img { transform: scale(1.1); }
 .g3 { grid-column: span 2; }  /* Dreierreihe */
 .g2 { grid-column: span 3; }  /* Zweierreihe */
 
@@ -424,7 +424,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
       max-width:none;
   background: var(--white);
   padding: 1rem 1.4rem; font-size: 0.9rem; max-width: 16rem;
-  box-shadow: 0 10px 30px rgba(26,60,61,0.12);
+  box-shadow: 0 10px 30px rgba(6,29,65,0.12);
 }
 
 .map-caption-sub{
@@ -484,7 +484,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   line-height: 1.4; color: var(--ocean-700);
 }
 .geschichte-zitat cite { display: block; margin-top: 0.7rem; font-family: var(--font-body); font-style: normal; font-size: 0.78rem; letter-spacing: 0.05em; color: var(--steel); }
-.geschichte-bild img, .geschichte-figure img { width: 100%; border-radius: var(--radius); box-shadow: 0 18px 45px rgba(26,60,61,0.16); }
+.geschichte-bild img, .geschichte-figure img { width: 100%; border-radius: var(--radius); box-shadow: 0 18px 45px rgba(6,29,65,0.16); }
 .geschichte-figure figcaption { margin-top: 0.9rem; font-size: 0.82rem; line-height: 1.6; color: var(--steel); }
 .geschichte-bild.arch img { border-radius: 999px 999px var(--radius) var(--radius); }
 .geschichte-bild figcaption { margin-top: 0.9rem; font-size: 0.82rem; line-height: 1.6; color: var(--steel); }
@@ -519,7 +519,7 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   margin-top: 2.5rem;
   max-width: 900px;
   background: var(--white);
-  box-shadow: 0 16px 40px rgba(26,60,61,.08);
+  box-shadow: 0 16px 40px rgba(6,29,65,.08);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -530,11 +530,16 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 /* ----------------------------------------------------------------------
    12 · FOOTER — tiefes Ostseeblau
 ---------------------------------------------------------------------- */
-.footer { background: #235152; color: var(--white); padding-block: clamp(2.5rem, 6vh, 4rem); }
+.footer { background: var(--ocean-700); color: var(--white); padding-block: clamp(2.5rem, 6vh, 4rem); }
 .footer h4 { color: var(--white); font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 0.75rem; }
 .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
 .footer a { color: var(--ocean-300); text-decoration: none; font-size: 0.9rem; }
 .footer a:hover { color: var(--white); }
+.footer-social {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+.footer-social svg { display: block; }
 .footer p { font-size: 0.9rem; color: rgba(255,255,255,0.85); }
 @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
 
