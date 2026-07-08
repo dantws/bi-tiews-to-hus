@@ -348,6 +348,30 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   color: var(--steel); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
   background: linear-gradient(180deg, #E2EBEF, #CFDDE3);
 }
+
+
+@media (max-width:760px){
+
+.map-caption{
+
+    max-width:170px;
+    padding:.7rem .9rem;
+    border-radius:12px;
+
+}
+
+.map-caption strong{
+
+    font-size:.95rem;
+
+}
+
+.map-caption br{
+    display:none;
+}
+
+}
+
 .map-caption {
    position:relative;
       left:auto;
@@ -361,6 +385,22 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
   padding: 1rem 1.4rem; font-size: 0.9rem; max-width: 16rem;
   box-shadow: 0 10px 30px rgba(22,48,63,0.12);
 }
+
+.map-caption-sub{
+    display:block;
+    margin-top:.35rem;
+}
+
+@media (max-width:760px){
+
+.map-caption-sub{
+
+    display:none;
+
+}
+
+}
+
 .map-caption strong { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; display: block; }
 
 .ortlage-text { padding: clamp(2.5rem, 6vw, 5rem); align-self: center; }
