@@ -26,6 +26,11 @@
   --gutter: clamp(1.5rem, 4.5vw, 3.5rem);
   --radius: 0;
   --header-height: 88px;
+
+  /* Button-Layout — Referenz: dedesgroup.com.au (Pill, leicht, uppercase) */
+  --btn-fs: clamp(0.875rem, 0.79rem + 0.36vw, 1.0625rem);
+  --btn-min-h: clamp(2.75rem, 2.55rem + 0.85vw, 3.125rem);
+  --btn-px: clamp(1.5rem, 1.1rem + 1.7vw, 2rem);
 }
 @media (max-width: 900px) { :root { --header-height: 76px; } }
 
@@ -68,22 +73,25 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 .container { max-width: var(--max-w); margin: 0 auto; padding-inline: var(--gutter); }
 .section { padding-block: clamp(6.5rem, 12vh, 9.5rem); }
 
-/* Buttons — Pill, ruhig, blau geführt */
+/* Buttons — Pill nach Vorbild dedesgroup.com.au: uppercase, leicht (400),
+   inline-flex mit min-height, gefüllt → Outline beim Hover. */
 .btn {
-  display: inline-block;
-  font-size: 0.82rem; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  text-decoration: none;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  min-height: var(--btn-min-h);
+  padding: 0.25rem var(--btn-px);
+  font-size: var(--btn-fs); font-weight: 400;
+  letter-spacing: 0.02em; text-transform: uppercase;
+  line-height: 1; text-align: center; text-decoration: none;
   color: var(--ocean-700);
   border: 1px solid var(--ocean-700);
   border-radius: 999px;
-  padding: 0.85rem 1.8rem;
   background: transparent;
-  transition: background .35s ease, color .35s ease, border-color .35s ease;
+  cursor: pointer;
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
 }
 .btn:hover { background: var(--ocean-700); color: var(--white); }
-.btn--fill { background: var(--ocean-700); color: var(--white); }
-.btn--fill:hover { background: var(--ocean-900); border-color: var(--ocean-900); }
+.btn--fill { background: var(--ocean-700); color: var(--white); border-color: var(--ocean-700); }
+.btn--fill:hover { background: transparent; color: var(--ocean-700); border-color: var(--ocean-700); }
 .btn--light { color: var(--white); border-color: var(--white); }
 .btn--light:hover { background: var(--white); color: var(--ocean-900); }
 
@@ -141,12 +149,13 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 /* CTA-Pille: über dem Hero Outline weiß, sonst weiß gefüllt */
 .navbar-cta {
   pointer-events: auto;
-  display: inline-block;
+  display: inline-flex; align-items: center; justify-content: center;
   text-decoration: none;
-  font-size: 0.74rem; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase;
+  font-size: clamp(0.8rem, 0.74rem + 0.22vw, 0.95rem); font-weight: 400;
+  letter-spacing: 0.02em; text-transform: uppercase;
   white-space: nowrap;
-  padding: 0.95rem 1.9rem;
+  min-height: 2.9rem;
+  padding: 0.25rem 1.7rem;
   border-radius: 999px;
   border: 1.5px solid var(--white);
   color: var(--white);
@@ -264,12 +273,13 @@ h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
 
 .hero-cta { display: flex; justify-content: center; margin-top: 2.5rem; }
 .hero-cta-banner {
-  display: inline-block;
+  display: inline-flex; align-items: center; justify-content: center;
   background: var(--white); color: var(--ocean-700);
   text-decoration: none;
-  font-size: 0.9rem; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  padding: 1.1rem 3.2rem; border-radius: 999px;
+  font-size: var(--btn-fs); font-weight: 400;
+  letter-spacing: 0.02em; text-transform: uppercase;
+  min-height: var(--btn-min-h);
+  padding: 0.25rem clamp(2rem, 1.4rem + 2.5vw, 3.2rem); border-radius: 999px;
   box-shadow: 0 14px 40px rgba(3, 14, 33, 0.35);
   transition: background .3s ease, color .3s ease;
 }
